@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   height: 100vh;
+
 }
 
 body {
@@ -15,12 +16,18 @@ body {
   background-color: slateblue;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  
 
+}
+
+#logo{
+  margin-left: 100px;
 }
 
 .navbar .links {
   text-align: center;
-  margin-right: 50px;
+  margin: auto;
 }
 
 .links a {
@@ -35,7 +42,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 50px;
+ 
 }
 
 .navbar button{

@@ -11,7 +11,9 @@ export const Navbar = () => {
         await signOut(auth);
     }
     return(
-        <div className="navbar">  <div id="logo">OTOPIZDZIK</div>
+        <div className="navbar"> 
+       
+         <div id="logo">OTOPIZDZIK</div>
             <div className="links">
               
                 <Link to="/">Home</Link>
@@ -21,7 +23,7 @@ export const Navbar = () => {
                     <Link to="/createpost">Create Post</Link>
                 )}    
             </div>
-            
+      
             <div className="user">
                 {user && (
                     <>
