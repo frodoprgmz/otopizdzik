@@ -13,7 +13,10 @@ export const Login = () => {
     }
 
     return <div>
+        <div className="pedal"> 
         <p>Sign In With Google To Continue</p>
         <button onClick={signInWithGoogle}>Sign In With Google</button>
+    </div>
+
     </div>
 }

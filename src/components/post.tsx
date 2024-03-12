@@ -9,16 +9,18 @@ export const Post = (props: Props) => {
     const {post} = props;
 
     return (
-        <div>
+      
+          <div className="ogloszenie">
             <div className="title">
-                <p>{post.title}</p>
+              <p>{post.title}</p>
             </div>
             <div>
-                <p>{post.description}</p>
+              <p>{post.description}</p>
             </div>
             <div>
-                <p>@{post.username}</p>
+              <p>@{post.username}</p>
             </div>
-        </div>
-    )
+          </div>
+    
+      )
 }

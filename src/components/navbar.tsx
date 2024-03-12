@@ -4,6 +4,7 @@ import {useAuthState} from "react-firebase-hooks/auth";
 import {signOut} from "firebase/auth";
 import React from 'react';
 
+
 export const Navbar = () => {
     const [user] = useAuthState(auth);
 
@@ -13,14 +14,14 @@ export const Navbar = () => {
     return(
         <div className="navbar"> 
        
-         <div id="logo">OTOPIZDZIK</div>
+         <div id="logo"></div>
             <div className="links">
               
-                <Link to="/">Home</Link>
+                <Link to="/" className="btn btn-outline-primary">Strona Gowna</Link>
                 {!user ? (
-                    <Link to="/login">Login</Link>
+                    <Link to="/login" className="btn btn-outline-primary">Wbijaj juchasie</Link>
                 ) : (
-                    <Link to="/createpost">Create Post</Link>
+                    <Link to="/createpost" className="btn btn-outline-primary">Utwórz ogłoszenie</Link>
                 )}    
             </div>
       
@@ -29,7 +30,7 @@ export const Navbar = () => {
                     <>
                     <p>{auth.currentUser?.displayName}</p>
                     <img src={auth.currentUser?.photoURL || ""} referrerPolicy="no-referrer"/>
-                    <button onClick={signUserOut}>Log Out</button>
+                    <button onClick={signUserOut} className="btn btn-outline-danger">Wydupcaj juchasie</button>
                     </>
                 )}
             </div>
