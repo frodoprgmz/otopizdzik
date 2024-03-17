@@ -1,26 +1,27 @@
-import {Post as IPost} from "../pages/main";
+import {PostData} from "../pages/main"; // Zmieniono 'Post' na 'PostData'
 import React from 'react';
 
 interface Props{
-    post: IPost;
+    post: PostData;
 }
 
 export const Post = (props: Props) => {
     const {post} = props;
 
     return (
-      
-          <div className="ogloszenie">
-            <div className="title">
-              <p>{post.title}</p>
+        <div>
+            <div>
+                <p>{post.title}</p>
             </div>
             <div>
-              <p>{post.description}</p>
+                <p>{post.description}</p>
             </div>
             <div>
-              <p>@{post.username}</p>
+                <img src={post.imageUrl} alt={post.title} />
             </div>
-          </div>
-    
-      )
+            <div>
+                <p>@{post.username}</p>
+            </div>
+        </div>
+    )
 }

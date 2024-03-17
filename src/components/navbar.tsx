@@ -14,7 +14,7 @@ export const Navbar = () => {
     return(
         <div className="navbar"> 
        
-         <div id="logo"></div>
+         <div id="logo">   </div>
             <div className="links">
               
                 <Link to="/" className="btn btn-outline-primary">Strona Gowna</Link>

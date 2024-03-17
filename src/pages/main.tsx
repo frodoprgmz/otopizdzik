@@ -1,32 +1,39 @@
-import {getDocs, collection} from "firebase/firestore";
-import {db} from "../config/firebase";
-import {useState, useEffect} from "react";
-import {Post} from "../components/post";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../config/firebase';
 
-export interface Post{
-    id: string;
-    userId: string;
+export interface PostData { // Dodano słowo kluczowe 'export'
     title: string;
-    username: string;
     description: string;
+    username: string;
+    userId: string;
+    imageUrl: string;
 }
 
 export const Main = () => {
-    const [postsList, setPostsList] = useState<Post[] | null>(null);
-    const postsRef = collection(db, "posts");
-
-    const getPosts = async () => {
-        const data = await getDocs(postsRef);
-        setPostsList(
-            data.docs.map((doc) => ({...doc.data(), id: doc.id})) as Post[]
-        );   
-    }
+    const [posts, setPosts] = useState<PostData[]>([]);
 
     useEffect(() => {
-        getPosts();
+        const fetchPosts = async () => {
+            const postsCollection = collection(db, 'posts');
+            const postsSnapshot = await getDocs(postsCollection);
+            const postsList = postsSnapshot.docs.map(doc => doc.data() as PostData);
+            setPosts(postsList);
+        };
+
+        fetchPosts();
     }, []);
-    return <div>
-        {postsList?.map((post) => <Post post={post}/>)}
-    </div>
-}
+
+    return (
+        <div>
+            {posts.map((post, index) => (
+                <div className="ogloszenie" key={index}>
+                    <h2  className="title">{post.title}</h2>
+                    <p>{post.description}</p>
+                    <img className="postphoto" src={post.imageUrl} alt={post.title} />
+                    <p>Dodane przez: {post.username}</p>
+                </div>
+            ))}
+        </div>
+    );
+};
