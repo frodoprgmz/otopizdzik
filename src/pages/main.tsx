@@ -25,12 +25,13 @@ export const Main = () => {
     }, []);
 
     return (
-        <div>
+        <div id="posts">
             {posts.map((post, index) => (
-                <div className="ogloszenie" key={index}>
-                    <h2  className="title">{post.title}</h2>
-                    <p>{post.description}</p>
-                    <img className="postphoto" src={post.imageUrl} alt={post.title} />
+                <div className="ogloszenie card" key={index}>
+                    <img className="postphoto card-img-top" src={post.imageUrl} alt={post.title} />
+                    <h2  className="title card-title">{post.title}</h2>
+                    <p className="card-text">{post.description}</p>
+                    
                     <p>Dodane przez: {post.username}</p>
                 </div>
             ))}

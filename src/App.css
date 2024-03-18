@@ -1,7 +1,8 @@
+
 .App {
   text-align: center;
   height: 100vh;
-  
+  width: 100%;
 }
 
 body {
@@ -12,15 +13,19 @@ body {
 }
 
 .navbar {
-  width: 100vw;
-  height: 80px;
-  background-color: darkblue;
+  width: 100%;
+  padding: 0 !important;
+  height: 70px;
+  background-color: rgb(90, 104, 255);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-
+  flex-direction: row;
+  -webkit-box-shadow: 0px -9px 31px 43px rgba(90, 104, 255, 1);
+  -moz-box-shadow: 0px -9px 31px 43px rgba(90, 104, 255, 1);
+  box-shadow: 0px -9px 31px 43px rgba(90, 104, 255, 1);
 }
+
 @media(max-width:1000px)
 {
   .navbar{
@@ -34,20 +39,19 @@ body {
   }
 #logo
 {
-  margin-top: -10px;
-  width: 20vw;
-  margin-left: 0px;
+  width: 200px !important;
+  margin: 0px;
   color: white;
   font-style: italic;
   font-size: 30px;
-  height: 100px;
+  height: 100px !important;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   background: url(../logogif.gif);
   background-position: center;
   background-repeat: no-repeat;
-  background-size:contain;
+  background-size:100%;
 }
 }
 #ogloszonka{
@@ -59,17 +63,23 @@ body {
 }
 
 .ogloszenie{
-  height: 200px;
+ min-height: 360px;
   width: 200px;
   background-color: darkgray;
   margin: 10px;
   margin-left: 50px;
   margin-top: 50px;
   float: left;
-
-
 }
-
+@media(max-width:1000px)
+{
+  .ogloszenie
+  {
+    height:auto;
+    width:70vw;
+margin-left: 15vw;
+  }
+}
 .pedal{
   background: url(../nigga.jpg);
   background-position: center;
@@ -79,16 +89,16 @@ body {
 }
 
 #logo{
-  margin-top: -10px;
-  width: 20vw;
+ margin-top: -10px;
+  width: 300px;
   margin-left: 0px;
   color: white;
   font-style: italic;
   font-size: 30px;
   height: 100%;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   background: url(../logogif.gif);
   background-position: center;
   background-repeat: no-repeat;
@@ -97,8 +107,8 @@ body {
 
 .navbar .links {
   text-align: center;
-  margin: auto;
-  width: 60vw;
+  margin: 0;
+
   height: 100%;
   display: flex;
   align-items: center;
@@ -106,11 +116,9 @@ body {
 }
 
 
-.btn.btn-outline-primary{
- margin: 5px;
-}
-.btn.btn-outline-danger{
-  margin-right: 5px;
+
+.btn{
+  margin: 15px;
  }
 
 .navbar .user {
@@ -129,11 +137,14 @@ body {
   font-size: 15px;
   
   color: white;
-  margin: auto;
+  margin: 10px;
 
 }
 
-
+.user
+{
+  margin: 0;
+}
 
 .user img {
   width: 50px;
@@ -187,4 +198,24 @@ textarea {
 {
   width: 200px;
   height: auto;
+}
+.btn-outline-danger
+{
+  margin: 5px;
+}
+.posts
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.inpost
+{
+  width: 300px;
+}
+form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

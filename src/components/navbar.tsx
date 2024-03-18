@@ -17,11 +17,11 @@ export const Navbar = () => {
          <div id="logo">   </div>
             <div className="links">
               
-                <Link to="/" className="btn btn-outline-primary">Strona Gowna</Link>
+                <Link to="/" className="btn btn-dark">Strona Gowna</Link>
                 {!user ? (
-                    <Link to="/login" className="btn btn-outline-primary">Wbijaj juchasie</Link>
+                    <Link to="/login" className="btn btn-dark">Wbijaj juchasie</Link>
                 ) : (
-                    <Link to="/createpost" className="btn btn-outline-primary">Utwórz ogłoszenie</Link>
+                    <Link to="/createpost" className="btn btn-dark">Utwórz ogłoszenie</Link>
                 )}    
             </div>
       

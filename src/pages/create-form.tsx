@@ -31,17 +31,22 @@ export const CreateForm = () => {
     const postsRef = collection(db, "posts");
 
     const onCreatePost = async (data: CreateFormData) => {
-        const imageFile = data.image[0]; // Wybieramy pierwszy plik z FileList
-        const imageDownloadUrl = await uploadImageToStorage(imageFile);
-        const postData = {
-            title: data.title,
-            description: data.description,
-            username: user?.displayName,
-            userId: user?.uid,
-            imageUrl: imageDownloadUrl
-        };
-        await addDoc(postsRef, postData);
-        navigate("/");
+        if (data.image && data.image.length > 0) {
+            const imageFile = data.image[0];
+            const imageDownloadUrl = await uploadImageToStorage(imageFile);
+            const postData = {
+                title: data.title,
+                description: data.description,
+                username: user?.displayName,
+                userId: user?.uid,
+                imageUrl: imageDownloadUrl
+            };
+            await addDoc(postsRef, postData);
+            navigate("/");
+        } else {
+
+            alert("Musisz dodać zdjęcie");
+        }
     }
 
     const uploadImageToStorage = async (image: File) => {
@@ -53,13 +58,13 @@ export const CreateForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onCreatePost)}>
-            <input type="file" {...register("image")} />
+            <input className="inpost" type="file" {...register("image")} />
             <p style={{color: "red"}}>{errors.image?.message}</p>
-            <input placeholder="TYTUŁ" {...register("title")}/>
+            <input className="inpost" placeholder="TYTUŁ" {...register("title")}/>
             <p style={{color: "red"}}>{errors.title?.message}</p>
-            <textarea placeholder="OPIS" {...register("description")}/>
-            <p style={{color: "red"}}>{errors.description?.message}</p>
-            <button className="submitForm" type="submit">Create Post</button>
+            <textarea className="inpost" placeholder="OPIS" {...register("description")}/>
+            <p  style={{color: "red"}}>{errors.description?.message}</p>
+            <button className="submitForm btn btn-success" type="submit">Create Post</button>
         </form>
     )
 }
