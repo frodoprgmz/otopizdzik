@@ -17,9 +17,9 @@ export const Navbar = () => {
          <div id="logo">   </div>
             <div className="links">
               
-                <Link to="/" className="btn btn-dark">Strona Gowna</Link>
+                <Link to="/" className="btn btn-dark">Strona Główna</Link>
                 {!user ? (
-                    <Link to="/login" className="btn btn-dark">Wbijaj juchasie</Link>
+                    <Link to="/login" className="btn btn-dark">Zaloguj się</Link>
                 ) : (
                     <Link to="/createpost" className="btn btn-dark">Utwórz ogłoszenie</Link>
                 )}    
@@ -30,7 +30,7 @@ export const Navbar = () => {
                     <>
                     <p>{auth.currentUser?.displayName}</p>
                     <img src={auth.currentUser?.photoURL || ""} referrerPolicy="no-referrer"/>
-                    <button onClick={signUserOut} className="btn btn-outline-danger">Wydupcaj juchasie</button>
+                    <button onClick={signUserOut} className="btn btn-outline-danger">Wyloguj się</button>
                     </>
                 )}
             </div>
