@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
 
-export interface PostData { // Dodano słowo kluczowe 'export'
+export interface PostData { 
     title: string;
     description: string;
     username: string;

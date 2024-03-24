@@ -1,4 +1,4 @@
-import {PostData} from "../pages/main"; // Zmieniono 'Post' na 'PostData'
+import {PostData} from "../pages/main"; 
 import React from 'react';
 
 interface Props{
